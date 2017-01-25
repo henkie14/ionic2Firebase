@@ -1,7 +1,7 @@
 {
-  "name": "ionic-hello-world",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "name": "ionicfirebase",
+  "author": "Chris Hagens",
+  "homepage": "https://chriztalk.com/",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -20,7 +20,7 @@
     "@angular/platform-browser-dynamic": "2.2.1",
     "@angular/platform-server": "2.2.1",
     "@ionic/storage": "1.1.7",
-    "angularfire2": "^2.0.0-beta.6",
+    "angularfire2": "2.0.0-beta.6",
     "firebase": "^3.6.6",
     "ionic-angular": "2.0.0-rc.5",
     "ionic-native": "2.2.11",
@@ -49,5 +49,5 @@
       "locator": "ios"
     }
   ],
-  "description": "ionic2Firebase: An Ionic project"
+  "description": "ionic2Firebase: An Ionic 2 Firebase authentication demo"
 }
