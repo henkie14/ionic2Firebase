@@ -7,7 +7,7 @@ This Ionic2 application will show how to use Firebase email/password authenticat
 This applications needs a Firebase application.
 So first you should login to your Firebase console at console.firebase.google.com, create and application and get your Firebase wepapp configuration.
 
-Next you need to open the app.module.ts file and replace the lines below with you configuration settings:
+Next you need to open the src/app/app.module.ts file and replace the lines below with you configuration settings:
 
   apiKey: '*****',
   
