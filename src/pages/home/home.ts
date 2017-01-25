@@ -27,19 +27,19 @@ export class HomePage {
     this.password = this.loginForm.controls['password'];
   }
 
-  submit(): void { 
-        if(this.loginForm.valid) {
-          var credentials = ({email: this.email.value, password: this.password.value});
-          this.auth.loginWithEmail(credentials).subscribe(data => {
-            console.log(data);
-          }, error=>{
-            console.log(error);
-            if (error.code == 'auth/user-not-found')
-            {
-              alert('User not found');
-            }
-          });
-        }
+  login(): void { 
+      if(this.loginForm.valid) {
+        var credentials = ({email: this.email.value, password: this.password.value});
+        this.auth.loginWithEmail(credentials).subscribe(data => {
+          console.log(data);
+        }, error=>{
+          console.log(error);
+          if (error.code == 'auth/user-not-found')
+          {
+            alert('User not found');
+          }
+        });
+      }
     }
 
     logout(): void {

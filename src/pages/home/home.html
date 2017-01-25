@@ -13,20 +13,21 @@
         </ion-item>
     </ion-row>
     <form [formGroup]="loginForm" (ngSubmit)="submit()" novalidate>
+        <ion-row>
+            <ion-item>
+                <ion-label for="email"></ion-label>
+                <ion-input type="email" value="" placeholder="Email" formControlName="email"></ion-input>
+            </ion-item>
+        </ion-row>
+        <ion-row>
+            <ion-item>
+                <ion-label for="password"></ion-label>
+                <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+            </ion-item>
+        </ion-row>
+    </form>
     <ion-row>
-        <ion-item>
-            <ion-label for="email"></ion-label>
-            <ion-input type="email" value="" placeholder="Email" formControlName="email"></ion-input>
-        </ion-item>
-    </ion-row>
-    <ion-row>
-        <ion-item>
-            <ion-label for="password"></ion-label>
-            <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
-        </ion-item>
-    </ion-row>
-    <ion-row>
-        <button ion-button type="submit" block>Log in</button>
+        <button (click)="login()" ion-button block>Log in</button>
     </ion-row>
     <ion-row> 
         <button [navPush]="signupPage" ion-button block>Sign up</button>
@@ -38,5 +39,4 @@
     <ion-row> 
         <button (click)="logout()" ion-button block>Log out</button>
     </ion-row>
-  </form>
 </ion-content>
