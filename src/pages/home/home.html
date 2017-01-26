@@ -9,7 +9,7 @@
     <ion-title>Login</ion-title>
     <ion-row>
         <ion-item>
-            <ion-label *ngIf="auth.authState">current user is {{auth.currentUser}}</ion-label>
+            <div *ngIf="auth.authState">current user is {{auth.currentUser}}</div>
         </ion-item>
     </ion-row>
     <form [formGroup]="loginForm" (ngSubmit)="submit()" novalidate>
