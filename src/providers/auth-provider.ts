@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter, Inject } from '@angular/core';
-import { AuthProviders, AngularFireAuth, FirebaseAuthState, AuthMethods, FirebaseApp } from 'angularfire2'; //Add FirebaseApp
+import { AuthProviders, AngularFire, FirebaseAuthState, AuthMethods, FirebaseApp } from 'angularfire2'; //Add FirebaseApp
 import { Observable } from "rxjs/Observable";
 
 @Injectable()
@@ -8,9 +8,9 @@ export class AuthProvider {
   public onAuth: EventEmitter<FirebaseAuthState> = new EventEmitter();
   public firebase : any; //Add native firebase
   
-  constructor(private auth: AngularFireAuth, @Inject(FirebaseApp)firebase: any) { //Add reference to native firebase SDK
+  constructor(private af: AngularFire, @Inject(FirebaseApp)firebase: any) { //Add reference to native firebase SDK
     this.firebase = firebase;  //Add reference to native firebase SDK
-    auth.subscribe((state: FirebaseAuthState) => {
+    this.af.auth.subscribe((state: FirebaseAuthState) => {
       this.authState = state;
       this.onAuth.emit(state);
     });
@@ -18,7 +18,7 @@ export class AuthProvider {
   
   loginWithEmail(credentials) {
     return Observable.create(observer => {
-      this.auth.login(credentials, {
+      this.af.auth.login(credentials, {
         provider: AuthProviders.Password,
         method: AuthMethods.Password
       }).then((authData) => {
@@ -32,7 +32,7 @@ export class AuthProvider {
 
   registerUser(credentials: any) {
     return Observable.create(observer => {
-      this.auth.createUser(credentials).then(authData => {
+      this.af.auth.createUser(credentials).then(authData => {
         //authData.auth.updateProfile({displayName: credentials.displayName, photoURL: credentials.photoUrl}); //set name and photo
         observer.next(authData);
       }).catch(error => {
@@ -55,7 +55,7 @@ export class AuthProvider {
   }
 
   logout() {
-    this.auth.logout();
+    this.af.auth.logout();
   }
 
   get currentUser():string{
